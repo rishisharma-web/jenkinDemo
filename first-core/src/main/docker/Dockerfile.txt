@@ -1,0 +1,7 @@
+FROM dockerfile/java:oracle-java8
+
+VOLUME /tmp
+ADD first-core.jar /opt/first-core/
+EXPOSE 8080
+WORKDIR /opt/first-core/
+CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-Xms512m", "-Xmx1g", "-jar", "first-core.jar"]
